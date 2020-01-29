@@ -20,3 +20,10 @@ export const StyledHeader = styled.header`
   transition: all 0.5s ease;
   height: auto !important;
 `
+
+export const StyledCard = styled.div`
+  border-radius: 15px !important;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  border: none !important;
+`
