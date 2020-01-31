@@ -10,10 +10,13 @@ import { Card, SEO, Layout, Section } from "../components"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Section>
-      <h1>PSLCorp - blog</h1>
-    </Section>
-    StyledSection
+    <Section
+      style={{
+        margin: `0 auto`,
+        maxWidth: 960,
+        padding: `1.45rem 1.0875rem`,
+      }}
+    />
     <Link to="/blog/">Go PSLCorp blog</Link>
     <Card />
   </Layout>

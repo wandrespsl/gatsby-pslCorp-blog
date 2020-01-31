@@ -11,47 +11,51 @@ export const colors = {
 }
 
 export const StyledHeader = styled.header`
+  background: transparent;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  padding: 10px 0 10px 42px;
+  padding: 0.625rem 0 0.625rem 2.625rem;
   z-index: 10000;
   transition: all 0.5s ease;
-  height: auto !important;
+  height: auto;
 `
 
 export const StyledCard = styled.div`
-  border-radius: 15px !important;
-  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 0.25rem 0 rgba(0, 0, 0, 0.1);
   padding: 0;
-  border: none !important;
+  border: none;
 `
 export const Button = styled.button`
   cursor: pointer;
   background-color: ${({ type }) =>
     type === "outline" ? "transparent" : colors.purple};
-  color: ${({ type }) => (type === "outline" ? colors.darkPurple : "white")};
+  color: ${({ type }) => (type === "outline" ? colors.ligthBlue : "white")};
   font-size: 0.9rem;
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 1rem;
   font-weight: 500;
   border: ${({ type }) =>
     type === "outline"
-      ? `3px solid ${colors.darkPurple}`
-      : `3px solid ${colors.purple}`};
-  border-radius: 12px;
-  a {
+      ? `0.125rem solid ${colors.ligthBlue}`
+      : `0.125rem solid ${colors.purple}`};
+  border-radius: 1.313rem;
+  .btn-primary {
     text-decoration: none;
-    color: ${({ type }) => (type === "outline" ? colors.darkBlue : "white")};
+    color: ${({ type }) => (type === "outline" ? colors.ligthBlue : "white")};
   }
   &:disabled {
     background-color: ${colors.gray};
     border-color: ${colors.gray};
     cursor: not-allowed;
   }
+  + button {
+    margin: 0 0 0 1rem;
+  }
 `
 export const StyledSection = styled.div`
-  background: ${colors.ligthBlue};
+  background: ${colors.darkPurple};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left top;
@@ -65,8 +69,8 @@ export const StyledSection = styled.div`
     .container {
       height: 100%;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      max-width: 60rem;
       span {
         font-size: 70px;
         line-height: 75px;
@@ -77,17 +81,22 @@ export const StyledSection = styled.div`
         letter-spacing: -0.04px;
       }
       h1 {
-        font-size: 26px;
+        font-size: 1.625rem;
         line-height: 30px;
         font-weight: 400;
-        margin: 0;
         padding: 0;
-        margin: 15px 0 0 0;
+        margin: 1rem 0 5rem 0;
         color: #ffffff;
         opacity: 0.9;
+        strong {
+          display: block;
+        }
       }
       .dp-flex {
         display: flex;
+      }
+      .column-3 {
+        width: 60%;
       }
     }
   }
