@@ -1,13 +1,20 @@
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import Image from "./image"
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `white`,
-      boxShadow: `0 2px 6px 0 rgba(0, 0, 0, 0.2)`,
-      marginBottom: `1.45rem`,
+      background: `transparent`,
+      position: `fixed`,
+      left: 0,
+      top: 0,
+      width: `100%`,
+      padding: `0.625rem 0 0.625rem 2.625rem`,
+      zIndex: 10000,
+      transition: `all 0.5s ease`,
+      height: `auto`,
     }}
   >
     <div
@@ -17,17 +24,8 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `black`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+      <Image />
+      <Link to="/" />
     </div>
   </header>
 )
