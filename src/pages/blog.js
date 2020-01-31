@@ -5,7 +5,6 @@ import { Link } from "gatsby"
 
 export default function blog() {
   return (
-    // <Layout>
     <div>
       <SEO title="Blog PSL" />
       <Header siteTitle="PSLCorp blog.." />
@@ -16,6 +15,5 @@ export default function blog() {
         <Button type="outline">PSL</Button>
       </Link>
     </div>
-    // </Layout>
   )
 }

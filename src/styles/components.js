@@ -16,10 +16,13 @@ export const StyledHeader = styled.header`
   left: 0;
   top: 0;
   width: 100%;
-  padding: 0.625rem 0 0.625rem 2.625rem;
+  padding: 2rem 0 0.625rem 2.625rem;
   z-index: 10000;
   transition: all 0.5s ease;
   height: auto;
+  .gatsby-image-wrapper {
+    width: 7rem;
+  }
 `
 
 export const StyledCard = styled.div`
@@ -33,7 +36,7 @@ export const Button = styled.button`
   background-color: ${({ type }) =>
     type === "outline" ? "transparent" : colors.purple};
   color: ${({ type }) => (type === "outline" ? colors.ligthBlue : "white")};
-  font-size: 0.9rem;
+  font-size: 1.25rem;
   padding: 0.4rem 1rem;
   font-weight: 500;
   border: ${({ type }) =>
@@ -44,6 +47,24 @@ export const Button = styled.button`
   .btn-primary {
     text-decoration: none;
     color: ${({ type }) => (type === "outline" ? colors.ligthBlue : "white")};
+    .btn-video {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: ${colors.ligthBlue};
+      border-radius: 50%;
+      position: relative;
+      right: -0.813rem;
+      .caret-2:before {
+        content: "";
+        position: absolute;
+        top: 0.35em;
+        left: 0.5em;
+        border-top: 0.25em solid transparent;
+        border-left: 0.4em solid ${colors.darkPurple};
+        border-right: 0.25em solid transparent;
+        border-bottom: 0.25em solid transparent;
+      }
+    }
   }
   &:disabled {
     background-color: ${colors.gray};
@@ -70,7 +91,7 @@ export const StyledSection = styled.div`
       height: 100%;
       display: flex;
       align-items: center;
-      max-width: 60rem;
+      max-width: 70rem;
       span {
         font-size: 70px;
         line-height: 75px;
@@ -86,10 +107,11 @@ export const StyledSection = styled.div`
         font-weight: 400;
         padding: 0;
         margin: 1rem 0 5rem 0;
-        color: #ffffff;
+        color: white;
         opacity: 0.9;
         strong {
           display: block;
+          font-weight: 400;
         }
       }
       .dp-flex {
@@ -97,6 +119,85 @@ export const StyledSection = styled.div`
       }
       .column-3 {
         width: 60%;
+      }
+    }
+  }
+`
+export const StyledFooter = styled.div`
+  background: ${colors.darkPurple};
+  color: white;
+  padding: 2.5rem 0 0 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .custom-home-about-us {
+    max-width: 70rem;
+    margin: 0 auto;
+    .container {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      p {
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: white;
+        padding: 0;
+        line-height: 1.5rem;
+        a {
+          font-size: 0.875em;
+          font-weight: 300;
+          color: ${colors.ligthBlue};
+          line-height: 1.938em;
+          display: block;
+          margin: 0.625rem 0 0;
+          text-decoration: none;
+          &.no-link {
+            color: white;
+            margin: 0;
+          }
+        }
+      }
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0 0 1.563rem;
+        line-height: 3.438rem;
+        letter-spacing: -0.003rem;
+      }
+      ul {
+        margin: 0 0 0.688rem;
+        padding: 0;
+        li {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          a {
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: ${colors.ligthBlue};
+            line-height: 1.938rem;
+            text-decoration: none;
+          }
+        }
+      }
+      .gatsby-image-wrapper {
+        width: 35%;
+        opacity: 1;
+        margin-bottom: 2.188rem;
+      }
+      .column-3 {
+        width: 25%;
+        padding: 0 1rem;
+      }
+      .column-4 {
+        width: 33.33333333%;
+        padding: 0 1rem;
+      }
+      .column-2 {
+        width: 16.66666667%;
+        padding: 0 1rem;
       }
     }
   }

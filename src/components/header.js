@@ -6,8 +6,9 @@ import { StyledHeader } from "../styles/components"
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
-    <Image />
-    <Link to="/" />
+    <Link to="/">
+      <Image fileName="logo-psl-2019.png" />
+    </Link>
   </StyledHeader>
 )
 

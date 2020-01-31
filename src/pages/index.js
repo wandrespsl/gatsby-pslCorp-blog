@@ -5,21 +5,24 @@ import { Link } from "gatsby"
 // import SEO from "../components/seo"
 // import Card from "../components/Card"
 
-import { Card, SEO, Layout, Section } from "../components"
+import { SEO, Section } from "../components"
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <SEO title="Home" />
     <Section
       style={{
+        background: `red`,
+        backgroundRepeat: `no-repeat`,
+        backgroundSize: `cover`,
+        backgroundPosition: `left top`,
         margin: `0 auto`,
         maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
       }}
     />
     <Link to="/blog/">Go PSLCorp blog</Link>
-    <Card />
-  </Layout>
+  </>
 )
 
 export default IndexPage
