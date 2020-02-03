@@ -53,7 +53,7 @@ export const Button = styled.button`
       background: ${colors.ligthBlue};
       border-radius: 50%;
       position: relative;
-      right: -0.813rem;
+      right: -0.5em;
       .caret-2:before {
         content: "";
         position: absolute;
@@ -76,10 +76,7 @@ export const Button = styled.button`
   }
 `
 export const StyledSection = styled.div`
-  background: ${colors.darkPurple};
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left top;
+  // background: ${colors.darkPurple};
   height: 100vh;
   display: flex;
   align-items: center;
@@ -116,6 +113,7 @@ export const StyledSection = styled.div`
       }
       .dp-flex {
         display: flex;
+        align-items: center;
       }
       .column-3 {
         width: 60%;

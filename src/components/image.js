@@ -2,19 +2,16 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Image = props => (
+const Image = ({ name }) => (
   <StaticQuery
     query={graphql`
       query {
-        images: allFile {
+        allImageSharp {
           edges {
             node {
-              relativePath
-              name
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
-                }
+              fluid(maxWidth: 500) {
+                ...GatsbyImageSharpFluid
+                originalName
               }
             }
           }
@@ -22,38 +19,18 @@ const Image = props => (
       }
     `}
     render={data => {
-      const image = data.images.edges.find(n => {
-        return n.node.relativePath.includes(props.fileName)
+      const image = data.allImageSharp.edges.find(edge => {
+        return edge.node.fluid.originalName === name
       })
       if (!image) {
         return null
       }
 
-      //const imageSizes = image.node.childImageSharp.sizes; sizes={imageSizes}
-      return <Img alt={props.alt} fluid={image.node.childImageSharp.fluid} />
+      return (
+        <Img alt={image.node.fluid.originalName} fluid={image.node.fluid} />
+      )
     }}
   />
 )
-
-// const data = useStaticQuery(graphql`
-//   query {
-//     placeholderImage: file(relativePath: { eq: "logo-psl-2019.png" }) {
-//       childImageSharp {
-//         fluid(maxWidth: 112) {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//     }
-//   }
-// `)
-
-// return (
-//   <Img
-//     fluid={data.placeholderImage.childImageSharp.fluid}
-//     style={{
-//       width: `7rem`,
-//     }}
-//   />
-// )
 
 export default Image

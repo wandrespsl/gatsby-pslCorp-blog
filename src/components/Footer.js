@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="custom-home-about-us">
         <div className="container">
           <div className="column-3">
-            <Image />
+            <Image name="logo-psl-2019.png" />
             <p>
               Hours:
               <br />

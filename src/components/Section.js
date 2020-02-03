@@ -2,9 +2,9 @@ import React from "react"
 // import { useStaticQuery, graphql } from "gatsby"
 import { StyledSection, Button } from "../styles/components"
 
-export default function Section() {
+export default function Section(props) {
   return (
-    <StyledSection>
+    <StyledSection id={props.bgimage}>
       <div className="custom-labs-case-studies">
         <div className="container">
           <div className="column-3">
