@@ -15,7 +15,9 @@ import "./layout.css"
 const Layout = ({ children }) => (
   <>
     <Header siteTitle="PSLCorp Home" />
-    <main>{children}</main>
+    <div>
+      <main>{children}</main>
+    </div>
     <Footer />
   </>
 )
