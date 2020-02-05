@@ -1,7 +1,7 @@
 import React from "react"
 
-import { StyledCard, Button } from "../styles/components"
-import { Link } from "gatsby"
+import { StyledCard } from "../styles/components"
+// import { Link } from "gatsby"
 
 export default function Card() {
   return (
@@ -21,9 +21,6 @@ export default function Card() {
           </div>
         </div>
       </div>
-      <Link to="/">
-        <Button>Volver al home</Button>
-      </Link>
     </StyledCard>
   )
 }

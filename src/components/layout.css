@@ -610,3 +610,8 @@ pre tt:after {
   background-size: cover;
   background-position: left top;
 }
+
+.container-blog {
+  width: 1170px;
+  margin: 6.25rem auto;
+}
