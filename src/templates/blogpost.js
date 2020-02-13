@@ -3,18 +3,6 @@ import { graphql } from "gatsby"
 
 import { SEO, Card } from "../components"
 
-export const query = graphql`
-  query PostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        description
-        date
-      }
-    }
-  }
-`
 export default function BlogPost(props) {
   const post = props.data.markdownRemark
   const { title, description, date } = post.frontmatter
@@ -40,3 +28,16 @@ export default function BlogPost(props) {
     </div>
   )
 }
+
+export const query = graphql`
+  query PostQuery($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+        description
+        date
+      }
+    }
+  }
+`

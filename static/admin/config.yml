@@ -1,12 +1,17 @@
 backend:
-  name: test-repo
+  name: github
+  repo: wandrespsl/gatsby-pslCorp-blog
+
 media_folder: static/assets
-public_folder: assets
+public_folder: /img
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: false
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: datetime }
