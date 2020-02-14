@@ -1,42 +1,53 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { SEO, Card } from "../components"
 
-export default function BlogPost(props) {
-  const post = props.data.markdownRemark
-  const { title, description, date } = post.frontmatter
-  return (
-    <div className="container-blog">
-      <SEO title="Blog PSL" />
-      <h1>
-        {title}
-        <span class="hljs-name"></span>
-      </h1>
-      <i>
-        {description}
-        <span class="hljs-name"></span>
-      </i>{" "}
-      -{" "}
-      <small>
-        {date}
-        <span class="hljs-name"></span>
-      </small>
-      <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
-      <span class="hljs-name"></span>
-      <Card />
-    </div>
-  )
+class BlogPost extends React.Component {
+  render() {
+    const post = this.props.data.mdx
+    const siteTitle = this.props.data.site.siteMetadata
+    // const { previous, next } = this.props.pageContext
+    // const { title, description, date } = this.props.frontmatter
+
+    return (
+      <div className="container-blog">
+        <SEO title={siteTitle} />
+        <h1>
+          {post.frontmatter.title}
+        </h1>
+        <i>
+          {post.frontmatter.description}
+        </i>
+        <small>
+          {post.frontmatter.date}
+        </small>
+        <MDXRenderer>{post.body}</MDXRenderer>
+        <Card />
+      </div>
+    )
+  }
 }
+
+export default BlogPost
 
 export const query = graphql`
   query PostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
+    mdx(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      body
       frontmatter {
         title
+        date(formatString: "MMMM DD, YYYY")
         description
-        date
       }
     }
   }

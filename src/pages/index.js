@@ -7,7 +7,7 @@ const IndexPage = () => (
   <>
     <SEO title="Home" />
     <Section bgimage="home-gradient" />
-    <Link to="/blogpost/">Go PSLCorp blog</Link>
+    <Link to="/blog">Go PSLCorp blog</Link>
   </>
 )
 

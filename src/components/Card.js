@@ -8,7 +8,7 @@ export default function Card() {
     <StyledCard>
       <div>
         <div className="col-cell cell-tight">
-          <div className="eb-post-avatar"></div>
+          <div className="eb-post-avatar">Hola</div>
         </div>
         <div className="col-cell">
           <div className="eb-post-author">

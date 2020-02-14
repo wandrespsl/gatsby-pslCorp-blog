@@ -9,11 +9,9 @@ collections:
     label: "Blog"
     folder: "content/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    editor:
-      preview: false
     fields:
       - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
+      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }

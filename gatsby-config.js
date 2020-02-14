@@ -3,14 +3,23 @@ module.exports = {
     title: `Prueba PSLCorp - Blog`,
     description: `This is test the page the PSLCorp and the blog.`,
     author: `@weyandres`,
+    siteUrl: `https://pslcorp-design.netlify.com/`,
+    social: {
+      twitter: `weyandres`,
+    },
   },
   plugins: [
+    'gatsby-plugin-netlify-cms',
     `gatsby-plugin-styled-components`,
-    `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-feed-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blogpost`,
+        name: `blog`,
         path: `${__dirname}/content/blog`,
       },
     },
@@ -21,15 +30,63 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    'gatsby-plugin-netlify-cms',
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [".mdx", ".md"],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-vscode`,
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+          },
+          {
+            resolve: `gatsby-remark-smartypants`,
+          },
+        ],
+      },
+    },    
+    // {
+    //   resolve: `gatsby-transformer-remark`,
+    //   options: {
+    //     plugins: [
+    //       {
+    //         resolve: `gatsby-remark-images`,
+    //         options: {
+    //           maxWidth: 590,
+    //         },
+    //       },
+    //       {
+    //         resolve: `gatsby-remark-responsive-iframe`,
+    //         options: {
+    //           wrapperStyle: `margin-bottom: 1.0725rem`,
+    //         },
+    //       },
+    //       `gatsby-remark-prismjs`,
+    //       `gatsby-remark-copy-linked-files`,
+    //       `gatsby-remark-smartypants`,
+    //     ],
+    //   },
+    // },
     // {
     //   resolve: 'gatsby-plugin-netlify-cms',
     //   options: {
     //     modulePath: `${__dirname}/src/cms/cms.js`,
     //   },
-    // },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    // },    
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -42,7 +99,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
