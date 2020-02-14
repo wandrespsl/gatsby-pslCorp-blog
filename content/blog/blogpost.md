@@ -1,5 +1,5 @@
 ---
-path: blog
+path: content/blog
 date: '2039-06-24'
 title: PSL blog
 ---
