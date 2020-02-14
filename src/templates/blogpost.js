@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { SEO, Card } from "../components"
@@ -8,21 +8,17 @@ class BlogPost extends React.Component {
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata
-    // const { previous, next } = this.props.pageContext
-    // const { title, description, date } = this.props.frontmatter
-
+    
     return (
       <div className="container-blog">
         <SEO title={siteTitle} />
         <h1>
-          {post.frontmatter.title}
+          <Link to="/blog/">
+            {post.frontmatter.title}
+          </Link>
         </h1>
-        <i>
-          {post.frontmatter.description}
-        </i>
-        <small>
-          {post.frontmatter.date}
-        </small>
+        <i>{post.frontmatter.description}</i>
+        <small>{post.frontmatter.date}</small>
         <MDXRenderer>{post.body}</MDXRenderer>
         <Card />
       </div>
