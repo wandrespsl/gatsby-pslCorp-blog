@@ -30,6 +30,19 @@ export const StyledCard = styled.div`
   box-shadow: 0px 0px 0.25rem 0 rgba(0, 0, 0, 0.1);
   padding: 0;
   border: none;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 1rem 2rem;
+  .header-post {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #ddd;
+    width: 90%;
+    margin: 0 auto;
+  }
+
 `
 export const Button = styled.button`
   cursor: pointer;

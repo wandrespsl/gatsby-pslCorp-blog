@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import { StyledCard } from "../styles/components"
 import { SEO } from "../components"
 import { Button } from "../styles/components"
 
@@ -17,28 +18,41 @@ class Blog extends React.Component {
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <div key={node.fields.slug}>
-                <h3>
-                  <Link
-                    style={{ boxShadow: `none` }}
-                    to={`blog${node.fields.slug}`}
-                  >
-                    {title}
+              <StyledCard key={node.fields.slug}>
+                <div className="header-post">
+                  <div className="col-cell cell-tight">
+                    <div className="eb-post-avatar">Avatar</div>
+                  </div>
+                  <div className="col-cell">
+                    <div className="eb-post-author">
+                      <span>
+                        <Link to="/">PSL Corp</Link>
+                      </span>
+                    </div>
+                    <div className="eb-post-date text-muted">
+                      <time className="eb-meta-date">
+                        {node.frontmatter.date}
+                      </time>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h2>
+                    <Link to={`blog${node.fields.slug}`}>{title}</Link>
+                  </h2>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                  <Link to={`blog${node.fields.slug}`}>
+                    <Button marginTop="85px">Continue reading</Button>
                   </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </div>
+                </div>
+              </StyledCard>
             )
           })}
         </div>
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
       </>
     )
   }

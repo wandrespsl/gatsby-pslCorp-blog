@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import { SEO, Card } from "../components"
+import { SEO } from "../components"
 
 class BlogPost extends React.Component {
   render() {
@@ -10,8 +10,9 @@ class BlogPost extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata
     
     return (
-      <div className="container-blog">
+      <div className="container">
         <SEO title={siteTitle} />
+        <div>Header blog</div>
         <h1>
           <Link to="/blog/">
             {post.frontmatter.title}
@@ -20,7 +21,6 @@ class BlogPost extends React.Component {
         <i>{post.frontmatter.description}</i>
         <small>{post.frontmatter.date}</small>
         <MDXRenderer>{post.body}</MDXRenderer>
-        <Card />
       </div>
     )
   }

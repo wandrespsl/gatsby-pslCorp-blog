@@ -612,6 +612,14 @@ pre tt:after {
 }
 
 .container-blog {
+  width: 100%;
+  margin: 6.25rem auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container {
   width: 1170px;
   margin: 6.25rem auto;
 }
